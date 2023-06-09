@@ -13,6 +13,8 @@ class MoviesController extends Controller
     public function __construct(MovieService $movieService)
     {
         $this->movieService = $movieService;
+        $this->middleware('auth:api');
+
     }
 
     /**

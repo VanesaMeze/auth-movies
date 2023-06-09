@@ -20,11 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/refresh', [AuthController::class, 'refresh']);
+
 Route::get('/movies', [MoviesController::class, 'index']);
 Route::get('/movies/{id}', [MoviesController::class, 'show']);
 Route::post('/movies', [MoviesController::class, 'store']);
 Route::put('/movies/{id}', [MoviesController::class, 'update']);
 Route::delete('/movies/{id}', [MoviesController::class, 'destroy']);
-
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [AuthController::class, 'register']);
